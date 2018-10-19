@@ -11,6 +11,7 @@ public class MoneygotApplicationTests {
 
     @Test
     public void contextLoads() {
+
     }
 
 }
