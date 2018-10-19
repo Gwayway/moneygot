@@ -1,0 +1,1 @@
+insert  into userinfo (username, password, openid) values (#{username},#{password},#{openid})
