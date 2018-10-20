@@ -4,6 +4,7 @@ public class user {
     private  Integer id;
     private  String username;
     private  String password;
+    private  Integer openid;
     @Override
     public String toString() {
         return "user{" +
@@ -46,5 +47,5 @@ public class user {
         this.openid = openid;
     }
 
-    private  Integer openid;
+
 }
