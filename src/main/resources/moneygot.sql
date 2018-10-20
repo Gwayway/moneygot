@@ -20,7 +20,7 @@ LOCK TABLES `message` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `mission`
+-- Table structure for table `missionmapper`
 --
 
 DROP TABLE IF EXISTS `mission`;
@@ -39,7 +39,7 @@ CREATE TABLE `mission` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mission`
+-- Dumping data for table `missionmapper`
 --
 
 LOCK TABLES `mission` WRITE;

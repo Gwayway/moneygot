@@ -5,7 +5,7 @@ import willbest.moneygot.bean.user;
 import willbest.moneygot.service.userservice;
 import javax.annotation.Resource;
 @RestController
-public class Usercontroller {
+public class usercontroller {
     @Resource
     userservice userservice;
     @RequestMapping("/register")
