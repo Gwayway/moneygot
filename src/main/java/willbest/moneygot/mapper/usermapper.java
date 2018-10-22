@@ -2,6 +2,7 @@ package willbest.moneygot.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import willbest.moneygot.bean.user;
 
 public interface usermapper {
@@ -11,5 +12,7 @@ public interface usermapper {
     String userexistcheck(String username);
     @Select("select  * from  userinfo where username=#{username}")
     user login(String username);
+    @Update("update  userinfo set username=#{username},password=#{password}")
+    void  userupdate(user user);
 
 }

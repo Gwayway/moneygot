@@ -4,7 +4,6 @@ public class mission {
     private  String missioncontext;
     private  Integer missionmoney;
     private Date timeout;
-    private message message;
 
     public String getMissioncontext() {
         return missioncontext;
@@ -25,16 +24,7 @@ public class mission {
     public Date getTimeout() {
         return timeout;
     }
-
     public void setTimeout(Date timeout) {
         this.timeout = timeout;
-    }
-
-    public willbest.moneygot.bean.message getMessage() {
-        return message;
-    }
-
-    public void setMessage(willbest.moneygot.bean.message message) {
-        this.message = message;
     }
 }

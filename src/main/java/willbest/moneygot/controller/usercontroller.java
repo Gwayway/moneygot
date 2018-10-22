@@ -1,6 +1,7 @@
 package willbest.moneygot.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import willbest.moneygot.bean.user;
 import willbest.moneygot.service.userservice;
 import javax.annotation.Resource;

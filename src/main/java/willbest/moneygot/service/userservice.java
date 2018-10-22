@@ -1,5 +1,6 @@
 package willbest.moneygot.service;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import willbest.moneygot.bean.user;
 import willbest.moneygot.mapper.usermapper;
 import javax.annotation.Resource;
