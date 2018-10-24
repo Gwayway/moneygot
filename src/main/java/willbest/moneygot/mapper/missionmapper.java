@@ -8,9 +8,9 @@ public interface missionmapper {
     @SelectKey(keyProperty = "missionid",resultType =Integer.class,before = false,statement="call identity()")
     Integer missionadd(mission mission);
     @Delete("delete  from  mission where missionid=#{missionid}")
-    void missiondelete(String missionid);
+    void missiondelete(Integer missionid);
     @Select("select  * from  mission where  missionid#{missionid}")
     mission missiongot(Integer missionid);
-    @Update("update  mission set  missioncontext=#{missioncontext},missionmoney=#{missionmoney},timeout=#{timeout}")
-    void  missionipdate(Integer missionid);
+    @Update("update  mission set  missioncontext=#{missioncontext},missionmoney=#{missionmoney},timeout=#{timeout} where missionid=#{missionid}")
+    void  missionupdate(mission mission);
 }

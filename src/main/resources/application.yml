@@ -18,3 +18,8 @@ spring:
     template-loader-path: classpath:/templates/
     suffix: .ftl
     charset: utf-8
+  pagehelper:
+    helper-dialect: mysql
+    reasonable: true
+    support-methods-arguments: true
+    params: count=countSql

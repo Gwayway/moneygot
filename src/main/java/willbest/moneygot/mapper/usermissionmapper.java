@@ -8,5 +8,5 @@ public interface usermissionmapper {
     @Insert("inner  into  usermission (userid,missionid) values (#{userid},#{missionid})")
     void  usermissionadd(usermission usermission);
     @Delete("delete  from  usermission where  missionid=#{missionid}")
-    void  usermissiondelete(usermission usermission);
+    void  usermissiondelete(Integer missionid);
 }

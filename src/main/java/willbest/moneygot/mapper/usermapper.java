@@ -12,7 +12,9 @@ public interface usermapper {
     String userexistcheck(String username);
     @Select("select  * from  userinfo where username=#{username}")
     user login(String username);
-    @Update("update  userinfo set username=#{username},password=#{password}")
+    @Update("update  userinfo set username=#{username},password=#{password} where userid=#{userid}")
     void  userupdate(user user);
+    @Select("select  userid from  userinfo where username=#{username}")
+    Integer gotuserid(String username);
 
 }

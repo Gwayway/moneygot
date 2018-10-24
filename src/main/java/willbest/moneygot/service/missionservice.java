@@ -3,9 +3,11 @@ import org.springframework.stereotype.Service;
 import willbest.moneygot.bean.mission;
 import willbest.moneygot.bean.usermission;
 import willbest.moneygot.mapper.missionmapper;
+import willbest.moneygot.mapper.usermapper;
 import willbest.moneygot.mapper.usermissionmapper;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Service
 public class missionservice {
@@ -13,8 +15,10 @@ public class missionservice {
     missionmapper  missionmapper;
     @Resource
     usermissionmapper usermissionmapper;
-    public  String  missionadd(mission mission){//缺少userid数据
-        Integer userid=null;
+    @Resource
+    usermapper usermapper;
+    public  String  missionadd(mission mission, HttpSession session){
+        Integer userid=usermapper.gotuserid((String) session.getAttribute("username"));
         Integer missionid=missionmapper.missionadd(mission);
         usermission usermission=new usermission();
         usermission.setMissionid(missionid);
@@ -22,5 +26,12 @@ public class missionservice {
         usermissionmapper.usermissionadd(usermission);
         return "任务添加成功！";
     }
-
+    public String missiondelete(Integer missionid){
+        usermissionmapper.usermissiondelete(missionid);
+        return "删除了任务以及相关评论！";
+    }
+    public  String missionupdata(mission mission){
+        missionmapper.missionupdate(mission);
+        return "更新成功！";
+    }
 }

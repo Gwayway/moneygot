@@ -9,5 +9,5 @@ public interface missionmessagemapper {
     @Insert("insert  into  missionmessage (missionid,messageid) values (#{missionid},#{messageid})")
     void  missionmessageadd(missionmessage missionmessage);
     @Delete("delete  from  missionmessage where mission=#{missionid}")
-    void  missionmessagedelete(missionmessage missionmessage);
+    void  missionmessagedelete(Integer missionid);
 }

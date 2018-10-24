@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import willbest.moneygot.bean.user;
 import willbest.moneygot.service.userservice;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class usercontroller {
     @Resource
@@ -17,10 +19,10 @@ public class usercontroller {
         return  userservice.userregister(user);
     }
     @RequestMapping("/login")
-    public  String  login(String username, String password) throws Exception {
+    public  String  login(String username, String password, HttpSession session) throws Exception {
         user user=new user();
         user.setUsername(username);
         user.setPassword(password);
-        return  userservice.userlogin(user);
+        return  userservice.userlogin(user,session);
     }
 }
