@@ -4,7 +4,13 @@ public class mission {
     private  String missioncontext;
     private  Integer missionmoney;
     private Date timeout;
-
+    private  String missionname;
+    public String getMissionname() {
+        return missionname;
+    }
+    public void setMissionname(String missionname) {
+        this.missionname = missionname;
+    }
     public String getMissioncontext() {
         return missioncontext;
     }

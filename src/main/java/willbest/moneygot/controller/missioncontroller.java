@@ -24,11 +24,12 @@ public class missioncontroller {
        return missionservice.missiondelete(missionid);
     }
     @RequestMapping("/missionupdate")
-    public  String missionupdate(String missioncontext, Integer missionmoney, Date timeout){
+    public  String missionupdate(String missioncontext, Integer missionmoney, Date timeout,String missionname){
         mission mission=new mission();
         mission.setTimeout(timeout);
         mission.setMissionmoney(missionmoney);
         mission.setMissioncontext(missioncontext);
+        mission.setMissionname(missionname);
        return missionservice.missionupdata(mission);
     }
 }

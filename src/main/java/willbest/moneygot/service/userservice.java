@@ -31,7 +31,7 @@ public class userservice {
         if(username!=null){
             session.setAttribute("username",user.getUsername());
             user userinfo=usermapper.login(user.getUsername());
-            return user.getPassword()==userinfo.getPassword()?"登录成功！":"密码错误！";
+            return user.getPassword()==userinfo.getPassword()?"1":"2";
         }
         else{
             return "register";
