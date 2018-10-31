@@ -18,3 +18,4 @@ update  userinfo set username=#{username},password=#{password}
 insert  into  usertag (userid,tagid) values (userid=#{userid},tagid=#{tagid})
 delete  from  usertag where userid=#{userid}
 select  userid from  userinfo where username=#{username}
+select * from mission

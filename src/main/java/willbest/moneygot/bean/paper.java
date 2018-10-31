@@ -1,11 +1,20 @@
 package willbest.moneygot.bean;
 
-public class page {
+public class paper {
     private  Integer pagenum;
     private  Integer total;
     private  String sort;
     private  Integer pagesize;
     private  String orderby;
+    private  String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public Integer getPagenum() {
         return pagenum;

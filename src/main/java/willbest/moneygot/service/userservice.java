@@ -19,10 +19,10 @@ public class userservice {
             catch (Exception e){
                 return  "注册插入数据失败!";
             }
-            return  "注册成功！";
+            return  "1";
         }
         else {
-            return  "login";
+            return  "2";//跳转到登陆
         }
     }
     //登录
@@ -31,10 +31,10 @@ public class userservice {
         if(username!=null){
             session.setAttribute("username",user.getUsername());
             user userinfo=usermapper.login(user.getUsername());
-            return user.getPassword()==userinfo.getPassword()?"1":"2";
+            return user.getPassword()==userinfo.getPassword()?"1":"0";
         }
         else{
-            return "register";
+            return "2";//跳转到注册
         }
     }
 }

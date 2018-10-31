@@ -5,7 +5,6 @@ import org.springframework.cache.annotation.EnableCaching;
 
 
 @SpringBootApplication
-@EnableCaching
 public class MoneygotApplication {
 
     public static void main(String[] args) {
