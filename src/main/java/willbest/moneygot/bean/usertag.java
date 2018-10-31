@@ -1,5 +1,8 @@
 package willbest.moneygot.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class usertag {
     private  Integer userid;
     private  Integer tagid;

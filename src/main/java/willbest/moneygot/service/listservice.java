@@ -19,7 +19,7 @@ public class listservice {
             switch (paper.getType()){
                 case "mission":{
                     List<mission> missionlist=listmapper.gotallmission();
-                    return new DealPage<mission>(missionlist).getList();
+                    return new DealPage<>(missionlist).getList();
                 }
             }
         }else {

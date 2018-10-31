@@ -1,10 +1,11 @@
 package willbest.moneygot.mapper;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import willbest.moneygot.bean.user;
-
+@Mapper
 public interface usermapper {
     @Insert("insert  into userinfo (username, password, openid) values (#{username},#{password})")
     void   insert(user user);

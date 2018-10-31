@@ -2,7 +2,7 @@ package willbest.moneygot.mapper;
 
 import org.apache.ibatis.annotations.*;
 import willbest.moneygot.bean.mission;
-
+@Mapper
 public interface missionmapper {
     @Insert("insert  into  mission (missioncontext,missionmoney,timeout,missionname) values (#{missioncontext},#{missionmoney},#{timeout},#{missionname})")
     @SelectKey(keyProperty = "missionid",resultType =Integer.class,before = false,statement="call identity()")

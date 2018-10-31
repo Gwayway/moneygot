@@ -1,5 +1,8 @@
 package willbest.moneygot.bean;
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
+@Component
 public class mission {
     private  String missioncontext;
     private  Integer missionmoney;

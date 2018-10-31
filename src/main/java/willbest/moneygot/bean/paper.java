@@ -1,5 +1,8 @@
 package willbest.moneygot.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class paper {
     private  Integer pagenum;
     private  Integer total;

@@ -1,5 +1,8 @@
 package willbest.moneygot.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class missionmessage {
     private  Integer missionid;
     private  Integer messageid;

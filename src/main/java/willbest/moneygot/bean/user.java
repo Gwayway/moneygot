@@ -1,5 +1,8 @@
 package willbest.moneygot.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class user {
     private  Integer id;
     private  String username;

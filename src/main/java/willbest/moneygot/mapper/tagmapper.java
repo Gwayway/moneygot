@@ -2,9 +2,10 @@ package willbest.moneygot.mapper;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.SelectKey;
 import willbest.moneygot.bean.tag;
-
+@Mapper
 public interface tagmapper {
     @Insert("insert  into  tag (tagname)VALUES (tagname#{tagname})")
     @SelectKey(keyProperty = "tagid",resultType =Integer.class,before = false,statement="call identity()")

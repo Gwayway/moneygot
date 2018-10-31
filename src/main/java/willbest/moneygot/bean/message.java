@@ -1,5 +1,9 @@
 package willbest.moneygot.bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+
 import java.sql.Blob;
+@Component
 public class message {
     private String messagecontext;
     private Blob messagepiture;
