@@ -7,14 +7,14 @@ import willbest.moneygot.bean.paper;
 import willbest.moneygot.service.listservice;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
-@ResponseBody
 public class listcontroller {
     @Resource
     listservice listservice;
     @RequestMapping("/list")
-    public Object gotmissionpage(paper paper){//前端返回一个paper对象
-        return listservice.gotshowpages(paper);
+    public List showlist(paper paper){
+        return listservice.show(paper);
     }
 }

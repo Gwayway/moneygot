@@ -1,11 +1,8 @@
 package willbest.moneygot.service;
-
-import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
-import willbest.moneygot.bean.mission;
 import willbest.moneygot.bean.paper;
 import willbest.moneygot.mapper.listmapper;
-import willbest.moneygot.utils.DealPage;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,17 +11,22 @@ import java.util.List;
 public class listservice {
     @Resource
     listmapper listmapper;
-    public  Object gotshowpages(paper paper){
+    public List show(paper paper){
+        String type=paper.getType();
+        int pagenum=paper.getPagenum();
+        int pagessize=paper.getPagesize();
         if(paper.getType()!=null){
-            switch (paper.getType()){
+            switch (type){
                 case "mission":{
-                    List<mission> missionlist=listmapper.gotallmission();
-                    return new DealPage<>(missionlist).getList();
+                    PageHelper.startPage(pagenum,pagessize);
+                    return listmapper.gotalldata(type);
+                }
+                case "message":{
+                    PageHelper.startPage(pagenum,pagessize);
+                    return listmapper.gotalldata(type);
                 }
             }
-        }else {
-            return null;
         }
-        return  null;
+        return null;
     }
 }

@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class paper {
-    private  Integer pagenum;
-    private  Integer total;
+    private  int pagenum;
+    private  int total;
     private  String sort;
-    private  Integer pagesize;
+    private  int pagesize;
     private  String orderby;
     private  String type;
 
