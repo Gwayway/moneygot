@@ -24,7 +24,7 @@ public class missionservice {
         usermission.setMissionid(missionid);
         usermission.setUserid(userid);
         usermissionmapper.usermissionadd(usermission);
-        return "任务添加成功！";
+        return "1";
     }
     public String missiondelete(Integer missionid){
         usermissionmapper.usermissiondelete(missionid);

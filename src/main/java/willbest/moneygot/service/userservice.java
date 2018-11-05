@@ -11,7 +11,7 @@ public class userservice {
     @Resource
     usermapper usermapper;
     //注册
-    public String userregister(user user ){
+    public String userregister(user user){
         if(usermapper.userexistcheck(user.getUsername())==null){
             try{
                 usermapper.insert(user);

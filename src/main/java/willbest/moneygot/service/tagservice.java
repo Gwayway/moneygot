@@ -22,10 +22,12 @@ public class tagservice {
         Integer tagid=tagmapper.tagadd(tag);
         Integer userid=usermapper.gotuserid((String)session.getAttribute("username"));
         usertag usertag=new usertag();
+
+        
         usertag.setTagid(tagid);
         usertag.setUserid(userid);
         usertagmapper.usertagadd(usertag);
-        return  "标签添加成功！";
+        return  "1";
     }
     public  String tagdelete(Integer tagid){
         usertagmapper.usertagdelete(tagid);

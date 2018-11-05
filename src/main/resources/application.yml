@@ -23,3 +23,6 @@ spring:
     reasonable: true
     support-methods-arguments: true
     params: count=countSql
+  data:
+    solr:
+      host: http://localhost:8983/solr

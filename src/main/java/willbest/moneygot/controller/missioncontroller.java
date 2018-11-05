@@ -12,12 +12,13 @@ public class missioncontroller {
     @Resource
     missionservice missionservice;
     @RequestMapping("/missionadd")
-    public  String missinadd(String missioncontext, Integer missionmoney, Date timeout, HttpSession session){
+    public  String missinadd(String missioncontext, Integer missionmoney, Date timeout, HttpSession session,String missionname){
         mission mission=new mission();
         mission.setMissioncontext(missioncontext);
         mission.setMissionmoney(missionmoney);
         mission.setTimeout(timeout);
-        return  missionservice.missionadd(mission,session);//
+        mission.setMissionname(missionname);
+        return  missionservice.missionadd(mission,session);
     }
     @RequestMapping("/missiondelete")
     public  String missiondelete(Integer missionid){

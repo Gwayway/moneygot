@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Update;
 import willbest.moneygot.bean.user;
 @Mapper
 public interface usermapper {
-    @Insert("insert  into userinfo (username, password, openid) values (#{username},#{password})")
+    @Insert("insert  into userinfo (username, password) values (#{username},#{password})")
     void   insert(user user);
     @Select("select  username from  userinfo where username=#{username}")
     String userexistcheck(String username);
