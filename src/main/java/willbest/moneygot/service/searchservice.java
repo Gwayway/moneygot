@@ -3,6 +3,7 @@ package willbest.moneygot.service;
 import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
 import willbest.moneygot.mapper.searchmapper;
+import willbest.moneygot.oop.returnJson;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -11,9 +12,18 @@ import java.util.List;
 public class searchservice {
     @Resource
     searchmapper searchmapper;
-    public List findbycontext(String context,Integer currpage){
+    public returnJson findbycontext(String context, Integer currpage){
+        String searchtext=context;
         PageHelper.startPage(currpage,10);
-        List list=searchmapper.findsearch(context);
-        return list;
+        List list=searchmapper.findsearch(searchtext);
+        returnJson json=new returnJson();
+        if(list.isEmpty()) {
+            json.setNum(2);
+        }else {
+            json.setNum(1);
+        }
+        json.setObject(list);
+        return json;
     }
+
 }

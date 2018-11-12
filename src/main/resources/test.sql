@@ -19,4 +19,4 @@ insert  into  usertag (userid,tagid) values (userid=#{userid},tagid=#{tagid})
 delete  from  usertag where userid=#{userid}
 select  userid from  userinfo where username=#{username}
 select * from mission
-select distinct * from mission where missionname like "%#{context}%" or misssioncontext like "%#{context}%"
+select distinct * from mission where missionname like "%#{context}%" or missioncontext like "%#{context}%"
