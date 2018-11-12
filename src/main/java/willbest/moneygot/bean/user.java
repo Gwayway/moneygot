@@ -7,14 +7,12 @@ public class user {
     private  Integer id;
     private  String username;
     private  String password;
-    private  Integer openid;
     @Override
     public String toString() {
         return "user{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", openid=" + openid +
                 '}';
     }
 
@@ -41,14 +39,5 @@ public class user {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public Integer getOpenid() {
-        return openid;
-    }
-
-    public void setOpenid(Integer openid) {
-        this.openid = openid;
-    }
-
 
 }

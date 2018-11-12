@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/moneygot
+    url: jdbc:mysql://localhost:3306/moneygot?useSSL=false
     username: root
     password: 123456
   freemarker:
@@ -23,6 +23,3 @@ spring:
     reasonable: true
     support-methods-arguments: true
     params: count=countSql
-  data:
-    solr:
-      host: http://localhost:8983/solr

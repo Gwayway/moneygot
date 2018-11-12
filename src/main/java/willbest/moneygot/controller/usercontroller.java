@@ -12,17 +12,17 @@ public class usercontroller {
     @Resource
     userservice userservice;
     @RequestMapping("/register")
-    public String register(String username, String password){
+    public Integer register(String username, String password){
         user user=new user();
         user.setPassword(password);
         user.setUsername(username);
         return  userservice.userregister(user);
     }
     @RequestMapping("/login")
-    public  String  login(String username, String password, HttpSession session) throws Exception {
+    public  Integer  login(String username, String password, HttpSession session) throws Exception {
         user user=new user();
         user.setUsername(username);
         user.setPassword(password);
-        return  userservice.userlogin(user,session);
+        return userservice.userlogin(user,session);
     }
 }

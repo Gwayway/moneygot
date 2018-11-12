@@ -11,30 +11,31 @@ public class userservice {
     @Resource
     usermapper usermapper;
     //注册
-    public String userregister(user user){
+    public Integer userregister(user user){
         if(usermapper.userexistcheck(user.getUsername())==null){
             try{
                 usermapper.insert(user);
             }
             catch (Exception e){
-                return  "注册插入数据失败!";
+                return  0 ;
             }
-            return  "1";
+            return  1;
         }
         else {
-            return  "2";//跳转到登陆
+            return  2;//跳转到登陆
         }
     }
     //登录
-    public  String  userlogin(user user, HttpSession session) throws Exception{
+    public  Integer  userlogin(user user, HttpSession session) throws Exception{
         String username=usermapper.userexistcheck(user.getUsername());
         if(username!=null){
             session.setAttribute("username",user.getUsername());
+//            System.out.print(session.getAttribute("username"));
             user userinfo=usermapper.login(user.getUsername());
-            return user.getPassword()==userinfo.getPassword()?"1":"0";
+            return user.getPassword().equals(userinfo.getPassword())?1:0;
         }
         else{
-            return "2";//跳转到注册
+            return 2;//跳转到注册
         }
     }
 }
