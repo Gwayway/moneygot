@@ -8,6 +8,7 @@ import willbest.moneygot.mapper.missionmapper;
 import willbest.moneygot.oop.returnJson;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,10 +18,10 @@ public class listservice {
     @Resource
     listmapper listmapper;
     List list=null;
-    List<String> namelist=null;
+    List<String> namelist=new ArrayList<>();
     int listsize=0;
     public returnJson show(paper paper){
-        returnJson returnJson=null;
+        returnJson returnJson=new returnJson();
         String type=paper.getType();
         int pagenum=paper.getPagenum();
         int pagessize=paper.getPagesize();
