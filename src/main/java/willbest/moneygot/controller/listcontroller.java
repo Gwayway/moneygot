@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import willbest.moneygot.bean.paper;
+import willbest.moneygot.oop.returnJson;
 import willbest.moneygot.service.listservice;
 
 import javax.annotation.Resource;
@@ -14,7 +15,7 @@ public class listcontroller {
     @Resource
     listservice listservice;
     @RequestMapping("/list")
-    public List showlist(paper paper){
+    public returnJson showlist(paper paper){
         return listservice.show(paper);
     }
 }
