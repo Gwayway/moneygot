@@ -33,4 +33,8 @@ public class missioncontroller {
         mission.setMissionname(missionname);
        return missionservice.missionupdata(mission);
     }
+    @RequestMapping("/missiongot")
+    public mission getmission(Integer missionid){
+        return missionservice.missiongot(missionid);
+    }
 }

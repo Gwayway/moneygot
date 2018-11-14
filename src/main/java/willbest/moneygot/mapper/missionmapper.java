@@ -12,7 +12,7 @@ public interface missionmapper {
     Integer missionadd(mission mission);
     @Delete("delete  from  mission where missionid=#{missionid}")
     void missiondelete(Integer missionid);
-    @Select("select  * from  mission where  missionid#{missionid}")
+    @Select("select  * from  mission where  missionid=#{missionid}")
     mission missiongot(Integer missionid);
     @Update("update  mission set  missioncontext=#{missioncontext},missionmoney=#{missionmoney},timeout=#{timeout},missionname=#{missionname} where missionid=#{missionid}")
     void  missionupdate(mission mission);

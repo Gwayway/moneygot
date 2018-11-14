@@ -34,4 +34,7 @@ public class missionservice {
         missionmapper.missionupdate(mission);
         return "更新成功！";
     }
+    public  mission missiongot(Integer missionid){
+        return missionmapper.missiongot(missionid);
+    }
 }
