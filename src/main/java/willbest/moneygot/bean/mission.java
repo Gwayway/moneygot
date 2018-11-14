@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 @Component
 public class mission {
+    private Integer missionid;
     private  String missioncontext;
     private  Integer missionmoney;
     private Date timeout;
@@ -35,5 +36,9 @@ public class mission {
     }
     public void setTimeout(Date timeout) {
         this.timeout = timeout;
+    }
+
+    public Integer getMissionid() {
+        return missionid;
     }
 }

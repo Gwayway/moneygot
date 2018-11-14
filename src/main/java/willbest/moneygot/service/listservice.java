@@ -33,7 +33,7 @@ public class listservice {
                     listsize=list.size();
                     for(int i=0;i<listsize;i++){
                         mission mission=(mission)list.get(i);
-                        namelist.add(missionmapper.getusernamebymissionname(mission.getMissionname()));
+                        namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
                     }
                     returnJson.setObject(list);
                     returnJson.setObjiect2(namelist);

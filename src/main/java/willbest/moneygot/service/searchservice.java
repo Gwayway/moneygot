@@ -29,7 +29,7 @@ public class searchservice {
             json.setNum(1);
             for(int i=0;i<list.size();i++){
                 mission mission=(mission) list.get(i);
-                namelist.add(missionmapper.getusernamebymissionname(mission.getMissionname()));
+                namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
             }
             json.setObjiect2(namelist);
         }

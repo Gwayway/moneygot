@@ -20,4 +20,4 @@ delete  from  usertag where userid=#{userid}
 select  userid from  userinfo where username=#{username}
 select * from mission
 select distinct * from mission where missionname like "%#{context}%" or missioncontext like "%#{context}%"
-select  username from userinfo where userid=(select userid from usermission where missionid=(select missionid from mission where missionname=#{missionname}))
+select  username from userinfo where userid=(select userid from usermission where missionid=#{missionid})
