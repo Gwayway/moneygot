@@ -13,7 +13,6 @@ public class listcontroller {
     listservice listservice;
     @RequestMapping("/list")
     public returnJson showlist(Integer pagenum,Integer pagesize,String types){
-        System.out.print(types);
         paper paper=new paper();
         paper.setPagenum(pagenum);
         paper.setPagesize(pagesize);

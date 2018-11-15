@@ -1,5 +1,6 @@
 package willbest.moneygot.service;
 import com.github.pagehelper.PageHelper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import willbest.moneygot.bean.mission;
 import willbest.moneygot.oop.paper;
@@ -17,10 +18,8 @@ public class listservice {
     missionmapper missionmapper;
     @Resource
     listmapper listmapper;
-    List list=new ArrayList();
-    List<String> namelist=new ArrayList<>();
-    int listsize=0;
     public returnJson show(paper paper){
+        List<String> namelist=new ArrayList<>();
         returnJson returnJson=new returnJson();
         String types=paper.getTypes();
         int pagenum=paper.getPagenum();
@@ -29,17 +28,18 @@ public class listservice {
             switch (types){
                 case "mission":{
                     PageHelper.startPage(pagenum,pagessize);
-                    list=listmapper.gotalldata();
-                    listsize=list.size();
-                    for(int i=0;i<listsize;i++){
+                    List list=listmapper.gotallmissiondata();
+                    for(int i=0;i<list.size();i++){
                         mission mission=(mission)list.get(i);
-                        System.out.print(mission.getMissionname());
                         namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
                     }
                     returnJson.setObject(list);
                     returnJson.setObjiect2(namelist);
                     returnJson.setNum(1);
                     return  returnJson;
+                }
+                case "message":{
+
                 }
             }
         }
