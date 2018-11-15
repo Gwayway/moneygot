@@ -6,6 +6,6 @@ import willbest.moneygot.bean.mission;
 import java.util.List;
 @Mapper
 public interface listmapper {
-    @Select("select * from #{type}")
-    List gotalldata(String type);
+    @Select("select * from mission ")
+    List<mission> gotalldata();
 }

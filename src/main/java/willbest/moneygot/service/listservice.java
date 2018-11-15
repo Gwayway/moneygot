@@ -2,7 +2,7 @@ package willbest.moneygot.service;
 import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
 import willbest.moneygot.bean.mission;
-import willbest.moneygot.bean.paper;
+import willbest.moneygot.oop.paper;
 import willbest.moneygot.mapper.listmapper;
 import willbest.moneygot.mapper.missionmapper;
 import willbest.moneygot.oop.returnJson;
@@ -17,22 +17,23 @@ public class listservice {
     missionmapper missionmapper;
     @Resource
     listmapper listmapper;
-    List list=null;
+    List list=new ArrayList();
     List<String> namelist=new ArrayList<>();
     int listsize=0;
     public returnJson show(paper paper){
         returnJson returnJson=new returnJson();
-        String type=paper.getType();
+        String types=paper.getTypes();
         int pagenum=paper.getPagenum();
         int pagessize=paper.getPagesize();
-        if(paper.getType()!=null){
-            switch (type){
+        if(paper.getTypes()!=null){
+            switch (types){
                 case "mission":{
                     PageHelper.startPage(pagenum,pagessize);
-                    list=listmapper.gotalldata(type);
+                    list=listmapper.gotalldata();
                     listsize=list.size();
                     for(int i=0;i<listsize;i++){
                         mission mission=(mission)list.get(i);
+                        System.out.print(mission.getMissionname());
                         namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
                     }
                     returnJson.setObject(list);

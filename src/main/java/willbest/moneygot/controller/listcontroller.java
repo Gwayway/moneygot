@@ -1,21 +1,23 @@
 package willbest.moneygot.controller;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import willbest.moneygot.bean.paper;
+import willbest.moneygot.oop.paper;
 import willbest.moneygot.oop.returnJson;
 import willbest.moneygot.service.listservice;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @RestController
 public class listcontroller {
     @Resource
     listservice listservice;
     @RequestMapping("/list")
-    public returnJson showlist(paper paper){
+    public returnJson showlist(Integer pagenum,Integer pagesize,String types){
+        System.out.print(types);
+        paper paper=new paper();
+        paper.setPagenum(pagenum);
+        paper.setPagesize(pagesize);
+        paper.setTypes(types);
         return listservice.show(paper);
     }
 }
