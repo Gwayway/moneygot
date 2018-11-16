@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 import willbest.moneygot.bean.mission;
 import willbest.moneygot.service.missionservice;
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,9 +14,9 @@ public class missioncontroller {
     @Resource
     missionservice missionservice;
     @RequestMapping("/missionadd")
-    public  String missinadd(String missioncontext, Integer missionmoney, String time, String username, String missionname) throws ParseException {
-        java.util.Date timeout=new SimpleDateFormat("yyyy/mm/dd").parse(time);
-        System.out.print(username);
+    public  String missinadd(String missioncontext, Integer missionmoney, Date timeout, String username, String missionname) {
+
+        System.out.print(timeout);
         mission mission=new mission();
         mission.setMissioncontext(missioncontext);
         mission.setMissionmoney(missionmoney);

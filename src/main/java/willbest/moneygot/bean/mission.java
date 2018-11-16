@@ -1,7 +1,7 @@
 package willbest.moneygot.bean;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Component
 public class mission {
