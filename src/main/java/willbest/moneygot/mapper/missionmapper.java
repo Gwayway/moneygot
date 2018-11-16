@@ -9,7 +9,7 @@ import java.util.List;
 public interface missionmapper {
     @Insert("insert  into  mission (missioncontext,missionmoney,timeout,missionname) values (#{missioncontext},#{missionmoney},#{timeout},#{missionname})")
     @SelectKey(keyProperty = "missionid",resultType =Integer.class,before = false,statement="call identity()")
-    Integer missionadd(mission mission);
+    void missionadd(mission mission);
     @Delete("delete  from  mission where missionid=#{missionid}")
     void missiondelete(Integer missionid);
     @Select("select  * from  mission where  missionid=#{missionid}")

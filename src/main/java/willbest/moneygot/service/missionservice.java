@@ -17,9 +17,11 @@ public class missionservice {
     usermissionmapper usermissionmapper;
     @Resource
     usermapper usermapper;
-    public  String  missionadd(mission mission, HttpSession session){
-        Integer userid=usermapper.gotuserid((String) session.getAttribute("username"));
-        Integer missionid=missionmapper.missionadd(mission);
+    public  String  missionadd(mission mission,String username){
+        missionmapper.missionadd(mission);
+        Integer userid=usermapper.gotuserid(username);
+        Integer missionid=mission.getMissionid();
+        System.out.print(missionid);
         usermission usermission=new usermission();
         usermission.setMissionid(missionid);
         usermission.setUserid(userid);

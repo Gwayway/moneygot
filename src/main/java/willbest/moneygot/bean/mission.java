@@ -2,6 +2,7 @@ package willbest.moneygot.bean;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+
 @Component
 public class mission {
     private Integer missionid;
@@ -31,14 +32,15 @@ public class mission {
         this.missionmoney = missionmoney;
     }
 
+    public Integer getMissionid() {
+        return missionid;
+    }
+
     public Date getTimeout() {
         return timeout;
     }
+
     public void setTimeout(Date timeout) {
         this.timeout = timeout;
-    }
-
-    public Integer getMissionid() {
-        return missionid;
     }
 }

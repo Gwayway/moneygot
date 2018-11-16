@@ -6,26 +6,31 @@ import willbest.moneygot.bean.mission;
 import willbest.moneygot.service.missionservice;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 @RestController
 public class missioncontroller {
     @Resource
     missionservice missionservice;
     @RequestMapping("/missionadd")
-    public  String missinadd(String missioncontext, Integer missionmoney, Date timeout, HttpSession session,String missionname){
+    public  String missinadd(String missioncontext, Integer missionmoney, String time, String username, String missionname) throws ParseException {
+        java.util.Date timeout=new SimpleDateFormat("yyyy/mm/dd").parse(time);
+        System.out.print(username);
         mission mission=new mission();
         mission.setMissioncontext(missioncontext);
         mission.setMissionmoney(missionmoney);
         mission.setTimeout(timeout);
         mission.setMissionname(missionname);
-        return  missionservice.missionadd(mission,session);
+        return  missionservice.missionadd(mission,username);
     }
     @RequestMapping("/missiondelete")
     public  String missiondelete(Integer missionid){
        return missionservice.missiondelete(missionid);
     }
     @RequestMapping("/missionupdate")
-    public  String missionupdate(String missioncontext, Integer missionmoney, Date timeout,String missionname){
+    public  String missionupdate(String missioncontext, Integer missionmoney, Date timeout, String missionname){
         mission mission=new mission();
         mission.setTimeout(timeout);
         mission.setMissionmoney(missionmoney);
