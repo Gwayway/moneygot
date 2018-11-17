@@ -11,4 +11,8 @@ public interface listmapper {
     List<mission> gotallmissiondata();
     @Select("select * from message")
     List<message> gotallmessagedata();
+    @Select("select * from mission where missionid in (select missionid from usermission where userid=#{userid})")
+    List<mission> ownmission(Integer userid);
+    @Select("select * from mission where missionid in (select missionid from missionaccept where userid=#{userid})")
+    List<mission> gotmission(Integer userid);
 }

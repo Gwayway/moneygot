@@ -7,6 +7,15 @@ public class paper {
     private  int pagenum;
     private  int pagesize;
     private  String types;
+    private  String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getPagenum() {
         return pagenum;

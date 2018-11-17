@@ -3,6 +3,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import willbest.moneygot.bean.mission;
+import willbest.moneygot.mapper.usermapper;
 import willbest.moneygot.oop.paper;
 import willbest.moneygot.mapper.listmapper;
 import willbest.moneygot.mapper.missionmapper;
@@ -15,6 +16,8 @@ import java.util.List;
 @Service
 public class listservice {
     @Resource
+    usermapper usermapper;
+    @Resource
     missionmapper missionmapper;
     @Resource
     listmapper listmapper;
@@ -24,6 +27,7 @@ public class listservice {
         String types=paper.getTypes();
         int pagenum=paper.getPagenum();
         int pagessize=paper.getPagesize();
+        String username=paper.getUsername();
         if(paper.getTypes()!=null){
             switch (types){
                 case "mission":{
@@ -38,11 +42,24 @@ public class listservice {
                     returnJson.setNum(1);
                     return  returnJson;
                 }
-                case "message":{
-
+                case "ownmission":{
+                    Integer userid=usermapper.gotuserid(username);
+                    PageHelper.startPage(pagenum,pagessize);
+                    List list=listmapper.ownmission(userid);
+                    returnJson.setObject(list);
+                    returnJson.setNum(1);
+                    return  returnJson;
+                }
+                case "gotmission":{
+                    Integer userid=usermapper.gotuserid(username);
+                    PageHelper.startPage(pagenum,pagessize);
+                    List list=listmapper.gotmission(userid);
+                    returnJson.setObject(list);
+                    returnJson.setNum(1);
+                    return  returnJson;
                 }
             }
         }
-        return null;
+        return returnJson;
     }
 }

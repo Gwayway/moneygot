@@ -3,6 +3,8 @@ package willbest.moneygot.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import willbest.moneygot.bean.mission;
+import willbest.moneygot.bean.missionaccept;
+import willbest.moneygot.mapper.usermapper;
 import willbest.moneygot.service.missionservice;
 import javax.annotation.Resource;
 import java.sql.Date;
@@ -11,6 +13,8 @@ import java.text.SimpleDateFormat;
 
 @RestController
 public class missioncontroller {
+    @Resource
+    usermapper usermapper;
     @Resource
     missionservice missionservice;
     @RequestMapping("/missionadd")
@@ -40,5 +44,17 @@ public class missioncontroller {
     @RequestMapping("/missiongot")
     public mission getmission(Integer missionid){
         return missionservice.missiongot(missionid);
+    }
+    @RequestMapping("/missionaccept")
+    public  Integer missionaccept(String username,Integer missionid){
+        if(username!=null&&missionid!=null){
+            Integer userid= usermapper.gotuserid(username);
+            missionaccept missionaccept=new missionaccept();
+            missionaccept.setMissionid(missionid);
+            missionaccept.setUserid(userid);
+            return missionservice.missionaccept(missionaccept);
+        }else {
+            return 0;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package willbest.moneygot.service;
 import org.springframework.stereotype.Service;
 import willbest.moneygot.bean.mission;
+import willbest.moneygot.bean.missionaccept;
 import willbest.moneygot.bean.usermission;
 import willbest.moneygot.mapper.missionmapper;
 import willbest.moneygot.mapper.usermapper;
@@ -38,5 +39,15 @@ public class missionservice {
     }
     public  mission missiongot(Integer missionid){
         return missionmapper.missiongot(missionid);
+    }
+    public  Integer missionaccept(missionaccept missionaccept){
+        Integer missionid=missionaccept.getMissionid();
+        Integer state=missionmapper.existmission(missionid);
+        if(state==null){
+          missionmapper.missionaccept(missionaccept);
+          return 1;
+        }else {
+            return 2;
+        }
     }
 }

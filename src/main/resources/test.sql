@@ -22,4 +22,7 @@ select * from mission
 select distinct * from mission where missionname like "%#{context}%" or missioncontext like "%#{context}%"
 select  username from userinfo where userid=(select userid from usermission where missionid=#{missionid})
 select * from mission
-insert into usermission (userid,missionid) values (#(userid),#{missionid}
+insert into usermission (userid,missionid) values (#{userid},#{missionid}
+insert  into  missionaccept (missionid,userid) values (#{missionid},#{userid})
+select id from missionaccept where missionid=#{missionid}
+select * from mission where missionid in (select missionid from #{tables} where userid=#{userid})

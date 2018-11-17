@@ -12,11 +12,12 @@ public class listcontroller {
     @Resource
     listservice listservice;
     @RequestMapping("/list")
-    public returnJson showlist(Integer pagenum,Integer pagesize,String types){
+    public returnJson showlist(Integer pagenum,Integer pagesize,String types,String username){
         paper paper=new paper();
         paper.setPagenum(pagenum);
         paper.setPagesize(pagesize);
         paper.setTypes(types);
+        paper.setUsername(username);
         return listservice.show(paper);
     }
 }

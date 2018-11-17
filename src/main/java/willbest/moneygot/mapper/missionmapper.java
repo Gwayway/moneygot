@@ -2,6 +2,7 @@ package willbest.moneygot.mapper;
 
 import org.apache.ibatis.annotations.*;
 import willbest.moneygot.bean.mission;
+import willbest.moneygot.bean.missionaccept;
 
 import java.util.List;
 
@@ -18,4 +19,8 @@ public interface missionmapper {
     void  missionupdate(mission mission);
     @Select("select  username from userinfo where userid=(select userid from usermission where missionid=#{missionid})")
     String getusernamebymissionid(Integer missionid);
+    @Insert("insert  into  missionaccept (missionid,userid) values (#{missionid},#{userid})")
+    void missionaccept(missionaccept missionaccept);
+    @Select("select id from missionaccept where missionid=#{missionid}")
+    Integer existmission(Integer missionid);
 }
