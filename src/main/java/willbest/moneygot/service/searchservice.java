@@ -31,7 +31,7 @@ public class searchservice {
                 mission mission=(mission) list.get(i);
                 namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
             }
-            json.setObjiect2(namelist);
+            json.setObject2(namelist);
         }
         json.setObject(list);
         return json;

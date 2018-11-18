@@ -29,7 +29,7 @@ public class missioncontroller {
         return  missionservice.missionadd(mission,username);
     }
     @RequestMapping("/missiondelete")
-    public  String missiondelete(Integer missionid){
+    public  Integer missiondelete(Integer missionid){
        return missionservice.missiondelete(missionid);
     }
     @RequestMapping("/missionupdate")
@@ -46,13 +46,13 @@ public class missioncontroller {
         return missionservice.missiongot(missionid);
     }
     @RequestMapping("/missionaccept")
-    public  Integer missionaccept(String username,Integer missionid){
+    public  Integer missionaccept(String username,Integer missionid,Integer state){
         if(username!=null&&missionid!=null){
             Integer userid= usermapper.gotuserid(username);
             missionaccept missionaccept=new missionaccept();
             missionaccept.setMissionid(missionid);
             missionaccept.setUserid(userid);
-            return missionservice.missionaccept(missionaccept);
+            return missionservice.missionaccept(missionaccept,state);
         }else {
             return 0;
         }

@@ -7,7 +7,7 @@ import willbest.moneygot.bean.mission;
 import java.util.List;
 @Mapper
 public interface listmapper {
-    @Select("select * from mission ")
+    @Select("select * from mission where state=1 ")
     List<mission> gotallmissiondata();
     @Select("select * from message")
     List<message> gotallmessagedata();

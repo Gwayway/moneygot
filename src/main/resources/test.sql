@@ -26,3 +26,6 @@ insert into usermission (userid,missionid) values (#{userid},#{missionid}
 insert  into  missionaccept (missionid,userid) values (#{missionid},#{userid})
 select id from missionaccept where missionid=#{missionid}
 select * from mission where missionid in (select missionid from #{tables} where userid=#{userid})
+update mission set state=(#{state}+1)%2  where missionid=#{missionid}
+delete from mission where missionid=#{missionid}
+begin {delete from mission where missionid=#{missionid}| delete from usermission where missionid=#{missionid}}end

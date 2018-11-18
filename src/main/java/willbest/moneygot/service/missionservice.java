@@ -29,9 +29,9 @@ public class missionservice {
         usermissionmapper.usermissionadd(usermission);
         return "1";
     }
-    public String missiondelete(Integer missionid){
-        usermissionmapper.usermissiondelete(missionid);
-        return "删除了任务以及相关评论！";
+    public Integer missiondelete(Integer missionid){
+        missionmapper.missiondelete(missionid);
+        return 1;
     }
     public  String missionupdata(mission mission){
         missionmapper.missionupdate(mission);
@@ -40,11 +40,12 @@ public class missionservice {
     public  mission missiongot(Integer missionid){
         return missionmapper.missiongot(missionid);
     }
-    public  Integer missionaccept(missionaccept missionaccept){
+    public  Integer missionaccept(missionaccept missionaccept,Integer state ){
         Integer missionid=missionaccept.getMissionid();
-        Integer state=missionmapper.existmission(missionid);
-        if(state==null){
-          missionmapper.missionaccept(missionaccept);
+        Integer sta=missionmapper.existmission(missionid);
+        if(sta==null){
+            missionmapper.missionstatechange(state,missionid);
+            missionmapper.missionaccept(missionaccept);
           return 1;
         }else {
             return 2;

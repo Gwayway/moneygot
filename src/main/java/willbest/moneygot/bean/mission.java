@@ -5,14 +5,24 @@ import java.sql.Date;
 
 @Component
 public class mission {
+    private Integer state;
     private Integer missionid;
     private  String missioncontext;
     private  Integer missionmoney;
     private Date timeout;
     private  String missionname;
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
     public String getMissionname() {
         return missionname;
     }
+
     public void setMissionname(String missionname) {
         this.missionname = missionname;
     }
@@ -34,6 +44,10 @@ public class mission {
 
     public Integer getMissionid() {
         return missionid;
+    }
+
+    public void setMissionid(Integer missionid) {
+        this.missionid = missionid;
     }
 
     public Date getTimeout() {

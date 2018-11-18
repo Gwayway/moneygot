@@ -1,6 +1,5 @@
 package willbest.moneygot.service;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import willbest.moneygot.bean.mission;
 import willbest.moneygot.mapper.usermapper;
@@ -23,6 +22,7 @@ public class listservice {
     listmapper listmapper;
     public returnJson show(paper paper){
         List<String> namelist=new ArrayList<>();
+        List<mission> list=new ArrayList<>();
         returnJson returnJson=new returnJson();
         String types=paper.getTypes();
         int pagenum=paper.getPagenum();
@@ -32,34 +32,27 @@ public class listservice {
             switch (types){
                 case "mission":{
                     PageHelper.startPage(pagenum,pagessize);
-                    List list=listmapper.gotallmissiondata();
-                    for(int i=0;i<list.size();i++){
-                        mission mission=(mission)list.get(i);
-                        namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
-                    }
-                    returnJson.setObject(list);
-                    returnJson.setObjiect2(namelist);
-                    returnJson.setNum(1);
-                    return  returnJson;
-                }
+                    list=listmapper.gotallmissiondata();
+                }break;
                 case "ownmission":{
                     Integer userid=usermapper.gotuserid(username);
                     PageHelper.startPage(pagenum,pagessize);
-                    List list=listmapper.ownmission(userid);
-                    returnJson.setObject(list);
-                    returnJson.setNum(1);
-                    return  returnJson;
-                }
+                    list=listmapper.ownmission(userid);
+                }break;
                 case "gotmission":{
                     Integer userid=usermapper.gotuserid(username);
                     PageHelper.startPage(pagenum,pagessize);
-                    List list=listmapper.gotmission(userid);
-                    returnJson.setObject(list);
-                    returnJson.setNum(1);
-                    return  returnJson;
+                    list=listmapper.gotmission(userid);
                 }
             }
         }
+        for(int i=0;i<list.size();i++){
+            mission mission=(mission)list.get(i);
+            namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
+        }
+        returnJson.setObject2(namelist);
+        returnJson.setObject(list);
+        returnJson.setNum(1);
         return returnJson;
     }
 }
