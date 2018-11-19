@@ -9,6 +9,7 @@ import willbest.moneygot.mapper.usermissionmapper;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 @Service
 public class missionservice {
@@ -22,7 +23,6 @@ public class missionservice {
         missionmapper.missionadd(mission);
         Integer userid=usermapper.gotuserid(username);
         Integer missionid=mission.getMissionid();
-        System.out.print(missionid);
         usermission usermission=new usermission();
         usermission.setMissionid(missionid);
         usermission.setUserid(userid);
@@ -30,12 +30,19 @@ public class missionservice {
         return "1";
     }
     public Integer missiondelete(Integer missionid){
-        missionmapper.missiondelete(missionid);
-        return 1;
+        Integer i=1;
+        try{
+            missionmapper.usermissiondelete(missionid);
+            missionmapper.missiondelete(missionid);
+        }catch (Exception e){
+            i=0;
+            throw e;
+        }
+        return i;
     }
-    public  String missionupdata(mission mission){
+    public  Integer missionupdata(mission mission){
         missionmapper.missionupdate(mission);
-        return "更新成功！";
+        return 1;
     }
     public  mission missiongot(Integer missionid){
         return missionmapper.missiongot(missionid);
@@ -50,5 +57,15 @@ public class missionservice {
         }else {
             return 2;
         }
+    }
+    public  Integer missionout(Integer missionid) {
+        Integer i=1;
+        try {
+            missionmapper.missionout(missionid);
+        }catch (Exception e){
+            i=0;
+            throw e;
+        }
+        return i;
     }
 }

@@ -9,7 +9,7 @@ public class mission {
     private Integer missionid;
     private  String missioncontext;
     private  Integer missionmoney;
-    private Date timeout;
+    private String timeout;
     private  String missionname;
     public Integer getState() {
         return state;
@@ -50,11 +50,11 @@ public class mission {
         this.missionid = missionid;
     }
 
-    public Date getTimeout() {
+    public String getTimeout() {
         return timeout;
     }
 
-    public void setTimeout(Date timeout) {
+    public void setTimeout(String timeout) {
         this.timeout = timeout;
     }
 }

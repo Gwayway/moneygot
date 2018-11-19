@@ -12,7 +12,7 @@ public interface missionmapper {
     @Options(useGeneratedKeys=true, keyProperty="missionid", keyColumn="id")
     void missionadd(mission mission);
     @Delete("delete from mission where missionid=#{missionid}")
-    void missiondelete(@Param("missionid") Integer missionid);
+    void missiondelete(Integer missionid);
     @Select("select  * from  mission where  missionid=#{missionid}")
     mission missiongot(Integer missionid);
     @Update("update  mission set  missioncontext=#{missioncontext},missionmoney=#{missionmoney},timeout=#{timeout},missionname=#{missionname} where missionid=#{missionid}")
@@ -25,4 +25,8 @@ public interface missionmapper {
     Integer existmission(Integer missionid);
     @Update("update mission set state=#{state} where missionid=#{missionid}")
     void  missionstatechange(@Param("state") Integer state,@Param("missionid") Integer missionid);
+    @Delete("delete from missionaccept where missionid=#{missionid}")
+    void  missionout(Integer missionid);
+    @Delete("delete from usermission where missionid=#{missionid}")
+    void usermissiondelete(Integer missionid);
 }
