@@ -16,9 +16,10 @@ public class messageservice {
     @Resource
     missionmessagemapper missionmessagemapper;
     public  String messageadd(message message,Integer missionid){
-        Integer messageid=messagemapper.messageadd(message);
+        messagemapper.messageadd(message);
+        Integer messageid=message.getMessageid();
         missionmessage missionmessage=new missionmessage();
-        missionmessage.setMessageid(missionid);
+        missionmessage.setMissionid(missionid);
         missionmessage.setMessageid(messageid);
         missionmessagemapper.missionmessageadd(missionmessage);
         return  "1";

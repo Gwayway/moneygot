@@ -9,8 +9,8 @@ import java.util.List;
 public interface listmapper {
     @Select("select * from mission where state=1 ")
     List<mission> gotallmissiondata();
-    @Select("select * from message")
-    List<message> gotallmessagedata();
+    @Select("select * from message where messageid in (select messageid from missionmessage where missionid=#{missionid})")
+    List<message> gotallmessagedata(Integer missionid);
     @Select("select * from mission where missionid in (select missionid from usermission where userid=#{userid})")
     List<mission> ownmission(Integer userid);
     @Select("select * from mission where missionid in (select missionid from missionaccept where userid=#{userid})")

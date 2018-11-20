@@ -12,8 +12,9 @@ public class listcontroller {
     @Resource
     listservice listservice;
     @RequestMapping("/list")
-    public returnJson showlist(Integer pagenum,Integer pagesize,String types,String username){
+    public returnJson showlist(Integer pagenum,Integer pagesize,String types,String username,Integer id){
         paper paper=new paper();
+        paper.setId(id);
         paper.setPagenum(pagenum);
         paper.setPagesize(pagesize);
         paper.setTypes(types);

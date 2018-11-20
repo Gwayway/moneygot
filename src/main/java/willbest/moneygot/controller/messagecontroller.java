@@ -13,12 +13,11 @@ public class messagecontroller {
     @Resource
     messageservice messageservice;
     @RequestMapping("/messageadd")
-    public String messageadd(Integer missionid, String messagecontext){
-        if(missionid!=null){
+    public String messageadd(Integer missionid, String messagecontext,String commentername,String commenttime){
             message message=new message();
+            message.setCommenttime(commenttime);
             message.setMessagecontext(messagecontext);
+            message.setCommentername(commentername);
             return  messageservice.messageadd(message,missionid);
-        }
-        return "0";
     }
 }

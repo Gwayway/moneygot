@@ -4,6 +4,29 @@ import org.springframework.stereotype.Component;
 public class message {
     private Integer messageid;
     private String messagecontext;
+    private String commentername;
+    private String commenttime;
+
+    public String getCommenttime() {
+        return commenttime;
+    }
+
+    public void setCommenttime(String commenttime) {
+        this.commenttime = commenttime;
+    }
+
+    public void setMessageid(Integer messageid) {
+        this.messageid = messageid;
+    }
+
+    public String getCommentername() {
+        return commentername;
+    }
+
+    public void setCommentername(String commentername) {
+        this.commentername = commentername;
+    }
+
     public String getMessagecontext() {
         return messagecontext;
     }

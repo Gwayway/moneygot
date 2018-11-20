@@ -8,6 +8,15 @@ public class paper {
     private  int pagesize;
     private  String types;
     private  String username;
+    private  Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

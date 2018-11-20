@@ -22,7 +22,7 @@ public class listservice {
     listmapper listmapper;
     public returnJson show(paper paper){
         List<String> namelist=new ArrayList<>();
-        List<mission> list=new ArrayList<>();
+        List list=new ArrayList<>();
         returnJson returnJson=new returnJson();
         String types=paper.getTypes();
         int pagenum=paper.getPagenum();
@@ -33,22 +33,35 @@ public class listservice {
                 case "mission":{
                     PageHelper.startPage(pagenum,pagessize);
                     list=listmapper.gotallmissiondata();
+                    for(int i=0;i<list.size();i++){
+                        mission mission=(mission)list.get(i);
+                        namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
+                    }
                 }break;
                 case "ownmission":{
                     Integer userid=usermapper.gotuserid(username);
                     PageHelper.startPage(pagenum,pagessize);
                     list=listmapper.ownmission(userid);
+                    for(int i=0;i<list.size();i++){
+                        mission mission=(mission)list.get(i);
+                        namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
+                    }
                 }break;
                 case "gotmission":{
                     Integer userid=usermapper.gotuserid(username);
                     PageHelper.startPage(pagenum,pagessize);
                     list=listmapper.gotmission(userid);
+                    for(int i=0;i<list.size();i++){
+                        mission mission=(mission)list.get(i);
+                        namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
+                    }
+                }break;
+                case "message":{
+                    PageHelper.startPage(pagenum,pagessize);
+                    list=listmapper.gotallmessagedata(paper.getId());
+                    namelist=null;
                 }
             }
-        }
-        for(int i=0;i<list.size();i++){
-            mission mission=(mission)list.get(i);
-            namelist.add(missionmapper.getusernamebymissionid(mission.getMissionid()));
         }
         returnJson.setObject2(namelist);
         returnJson.setObject(list);
