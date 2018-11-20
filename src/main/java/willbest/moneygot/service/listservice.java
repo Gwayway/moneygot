@@ -60,6 +60,11 @@ public class listservice {
                     PageHelper.startPage(pagenum,pagessize);
                     list=listmapper.gotallmessagedata(paper.getId());
                     namelist=null;
+                }break;
+                case "tag":{
+                    PageHelper.startPage(pagenum,pagessize);
+                    list=listmapper.gottagbyusername(username);
+                    namelist=null;
                 }
             }
         }

@@ -18,12 +18,11 @@ public class tagservice {
     usermapper usermapper;
     @Resource
     usertagmapper usertagmapper;
-    public  String tagadd(tag tag, HttpSession session){
-        Integer tagid=tagmapper.tagadd(tag);
-        Integer userid=usermapper.gotuserid((String)session.getAttribute("username"));
+    public  String tagadd(tag tag,String username){
+        tagmapper.tagadd(tag);
+        Integer tagid=tag.getTagid();
+        Integer userid=usermapper.gotuserid(username);
         usertag usertag=new usertag();
-
-        
         usertag.setTagid(tagid);
         usertag.setUserid(userid);
         usertagmapper.usertagadd(usertag);

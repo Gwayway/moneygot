@@ -13,10 +13,10 @@ public class tagcontroller {
     @Resource
     tagservice tagservice;
     @RequestMapping("/tagadd")
-    public  String tagadd(String tagname, HttpSession session){
+    public  String tagadd(String tagname,String username){
         tag tag=new tag();
         tag.setTagname(tagname);
-        return tagservice.tagadd(tag,session);
+        return tagservice.tagadd(tag,username);
     }
     @RequestMapping("/tagdelete")
     public  String tagdelete(Integer tagid){

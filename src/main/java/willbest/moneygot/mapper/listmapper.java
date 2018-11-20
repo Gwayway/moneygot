@@ -4,6 +4,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import willbest.moneygot.bean.message;
 import willbest.moneygot.bean.mission;
+import willbest.moneygot.bean.tag;
+
 import java.util.List;
 @Mapper
 public interface listmapper {
@@ -15,4 +17,6 @@ public interface listmapper {
     List<mission> ownmission(Integer userid);
     @Select("select * from mission where missionid in (select missionid from missionaccept where userid=#{userid})")
     List<mission> gotmission(Integer userid);
+    @Select("select * from tag where tagid in(select tagid from usertag where userid=(select userid from userinfo where username=#{username}))")
+    List<tag> gottagbyusername(String username);
 }

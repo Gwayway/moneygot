@@ -30,3 +30,4 @@ update mission set state=(#{state}+1)%2  where missionid=#{missionid}
 delete from mission where missionid=#{missionid}
 begin {delete from mission where missionid=#{missionid}| delete from usermission where missionid=#{missionid}}end
 select * from message where messageid in (select messageid from missionmessage where missionid=#{missionid})
+select * from tag where tagid in(select tagid from usertag where userid=(select userid from userinfo where username=#{username}))
