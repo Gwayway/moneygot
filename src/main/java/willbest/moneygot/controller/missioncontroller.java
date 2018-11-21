@@ -18,10 +18,9 @@ public class missioncontroller {
     @Resource
     missionservice missionservice;
     @RequestMapping("/missionadd")
-    public  String missinadd(String missioncontext, Integer missionmoney, String timeout, String username, String missionname) {
-
-        System.out.print(timeout);
+    public  String missinadd(String missioncontext, Integer missionmoney, String timeout, String username, String missionname,String imageurl) {
         mission mission=new mission();
+        mission.setImageurl(imageurl);
         mission.setMissioncontext(missioncontext);
         mission.setMissionmoney(missionmoney);
         mission.setTimeout(timeout);
@@ -33,8 +32,9 @@ public class missioncontroller {
        return missionservice.missiondelete(missionid);
     }
     @RequestMapping("/missionupdate")
-    public  Integer missionupdate(String missioncontext, Integer missionmoney, String timeout, String missionname,Integer missionid){
+    public  Integer missionupdate(String missioncontext, Integer missionmoney, String timeout, String missionname,Integer missionid,String imageurl){
         mission mission=new mission();
+        mission.setImageurl(imageurl);
         mission.setMissionid(missionid);
         mission.setTimeout(timeout);
         mission.setMissionmoney(missionmoney);

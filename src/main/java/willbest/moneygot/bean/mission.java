@@ -11,6 +11,15 @@ public class mission {
     private  Integer missionmoney;
     private String timeout;
     private  String missionname;
+    private String imageurl;
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
+    }
+
     public Integer getState() {
         return state;
     }

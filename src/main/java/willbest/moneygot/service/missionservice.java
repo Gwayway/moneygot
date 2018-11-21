@@ -61,6 +61,7 @@ public class missionservice {
     public  Integer missionout(Integer missionid) {
         Integer i=1;
         try {
+            missionmapper.missionstatechange(1,missionid);
             missionmapper.missionout(missionid);
         }catch (Exception e){
             i=0;
